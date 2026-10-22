@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taekwondo Arena 8-Bit - Spooky Dojang</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/calavera.png">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fuente Retro 8-Bits -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-dark text-light d-flex flex-column min-vh-100">
+
+  <!-- HEADER -->
+  <header class="py-3 bg-danger bg-gradient text-white border-bottom border-4 border-warning shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <img src="assets/img/calavera.png" alt="Logo Retro" style="height: 48px; width: auto; image-rendering: pixelated;">
+        <div>
+          <h1 class="h3 mb-0 fw-bold retro-text">TAEKWONDO ARENA 8-BIT</h1>
+          <p class="mb-0 small text-warning fw-semibold">Edición Especial Arcade: Spooky Dojang</p>
+        </div>
+      </div>
+      
+      <div class="d-flex align-items-center gap-2">
+        <button id="audioToggle" class="btn btn-sm btn-outline-warning retro-badge">
+          <i class="bi bi-volume-up-fill me-1"></i> AUDIO: ON
+        </button>
+        <span class="badge bg-warning text-dark px-3 py-2 fs-6 retro-badge">STAGE 1</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container my-4 flex-grow-1">
+    
+    <!-- Instrucciones e Interfaz -->
+    <div class="row mb-3 align-items-center">
+      <div class="col-md-5">
+        <div class="card bg-secondary text-white border-2 border-light shadow-sm">
+          <div class="card-body py-2 px-3">
+            <i class="bi bi-controller text-warning me-2"></i>
+            <strong>Instrucciones:</strong> ¡Consigue la mayor puntuación en <strong>60s</strong>! Haz combos rápidos para multiplicar tus puntos y cargar la cámara lenta.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contadores de Puntos, Combo, Tiempo y Barra -->
+      <div class="col-md-7 text-end mt-2 mt-md-0">
+        <div class="card bg-black border-2 border-warning shadow-sm">
+          <div class="card-body py-2 px-3">
+            <div class="d-flex justify-content-around align-items-center mb-2">
+              <div class="text-start">
+                <span class="text-uppercase text-danger fw-bold small d-block">TIEMPO:</span>
+                <span id="timer" class="fs-4 fw-bold text-danger retro-score">60s</span>
+              </div>
+              <div>
+                <span class="text-uppercase text-info fw-bold small d-block">COMBO:</span>
+                <span id="comboText" class="fs-4 fw-bold text-info retro-score">1x</span>
+              </div>
+              <div>
+                <span class="text-uppercase text-warning fw-bold small d-block">SCORE:</span>
+                <span id="score" class="fs-3 fw-bold text-success retro-score">0000</span>
+              </div>
+            </div>
+
+            <!-- BARRA DE ENERGÍA / CÁMARA LENTA -->
+            <div class="progress bg-dark border border-warning" style="height: 18px;">
+              <div id="slowBar" class="progress-bar bg-warning progress-bar-striped progress-bar-animated text-dark fw-bold retro-text-sm" role="progressbar" style="width: 0%;">
+                ENERGÍA BULLET TIME
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas de Juego con Contenedor de Game Over -->
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <div class="canvas-container shadow-lg rounded position-relative">
+          <canvas id="gameCanvas" width="900" height="550"></canvas>
+          
+          <!-- Overlay de Game Over -->
+          <div id="gameOverScreen" class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-none flex-column justify-content-center align-items-center text-white" style="z-index: 10;">
+            <h2 class="retro-text text-danger display-4 mb-3">GAME OVER</h2>
+            <p class="retro-text-sm text-warning mb-2">PUNTUACIÓN FINAL: <span id="finalScore">0000</span></p>
+            <p class="retro-text-sm text-info mb-4">TOTAL DE IMPACTOS: <span id="finalHits">0</span></p>
+            <button id="restartBtn" class="btn btn-warning btn-lg retro-badge px-4 py-3 fw-bold">
+              <i class="bi bi-arrow-counterclockwise me-2"></i> REINTENTAR
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-3 bg-black text-secondary border-top border-4 border-danger mt-auto">
+    <div class="container text-center">
+      <p class="mb-1 text-light fw-bold retro-text-sm">Simulación y Graficación - Instituto Tecnológico de Pachuca / TecNM</p>
+      <div class="small">
+        <span><i class="bi bi-person-fill text-warning me-1"></i> Sanchez Garcia Juan Pablo (No. Control: 24200101)</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
+```eof
+
+He reemplazado la sección del pie de página en `index.html` para que muestre de forma limpia únicamente tu nombre y número de control: **Sanchez Garcia Juan Pablo (No. Control: 24200101)**. 
+
+¿Hay algún otro ajuste que necesites para tu entrega?

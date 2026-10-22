@@ -1,0 +1,58 @@
+/* Configuración General con Estilo Tipográfico Retro 8-Bit */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  background-color: #0d0d0d;
+}
+
+.retro-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.1rem;
+  letter-spacing: -1px;
+}
+
+.retro-text-sm {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+}
+
+.retro-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.75rem;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+.retro-score {
+  font-family: 'Press Start 2P', monospace;
+  color: #00ff00 !important;
+  text-shadow: 2px 2px #005500;
+}
+
+/* Animación de parpadeo cuando la Cámara Lenta está Activa */
+.slow-active {
+  animation: pulseSlow 0.6s infinite alternate;
+}
+
+@keyframes pulseSlow {
+  from { box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.4); }
+  to { box-shadow: 0px 0px 40px rgba(0, 255, 255, 0.9); }
+}
+
+.canvas-container {
+  display: inline-block;
+  border: 6px solid #8b0000;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #000;
+  box-shadow: 0px 0px 25px rgba(255, 0, 0, 0.4);
+}
+
+#gameCanvas {
+  display: block;
+  margin: 0 auto;
+  cursor: none !important;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+}
